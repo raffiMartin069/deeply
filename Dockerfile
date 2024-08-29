@@ -14,4 +14,4 @@ RUN npm install vite --save-dev
 
 RUN npm run build
 
-CMD ["npm", "run", "preview"]
+CMD ["npm", "run", "preview", "--", "--host"]
