@@ -18,6 +18,10 @@ jobs:
         with:
           username: ${{ vars.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - 
+        name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d--%M-%S')"
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -26,4 +30,4 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           push: true
-          tags: ${{ vars.DOCKERHUB_USERNAME }}/deeply:latest
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/deeply:${{ steps.date.outputs.date }}.latest
