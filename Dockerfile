@@ -8,7 +8,7 @@ RUN npm i
 
 COPY . /app
 
-EXPOSE 5174
+EXPOSE 4173
 
 RUN npm install vite --save-dev
 
