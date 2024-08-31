@@ -56,7 +56,8 @@
 				"GitHub.copilot-chat",
 				"GitHub.copilot",
 				"GitHub.vscode-github-actions",
-				"AnbuselvanRocky.bootstrap5-vscode"
+				"AnbuselvanRocky.bootstrap5-vscode",
+				"esbenp.prettier-vscode"
 			]
 		}
 	}
