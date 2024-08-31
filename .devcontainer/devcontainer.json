@@ -57,7 +57,9 @@
 				"GitHub.copilot",
 				"GitHub.vscode-github-actions",
 				"AnbuselvanRocky.bootstrap5-vscode",
-				"esbenp.prettier-vscode"
+				"esbenp.prettier-vscode",
+				"thekalinga.bootstrap4-vscode",
+				"hossaini.bootstrap-intellisense"
 			]
 		}
 	}

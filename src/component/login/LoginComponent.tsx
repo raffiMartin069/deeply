@@ -1,65 +1,70 @@
+import FormButton from "../../common/forms/FormButton";
+import FieldsComponent from "../../common/forms/FieldsComponent";
+import RememberForgotPassComponent from "./RememberForgotPassComponent";
+import LoginMethod from "./LoginMethod";
+
+const Logos = () => {
+  return [
+    "bi bi-facebook",
+    "bi bi-google",
+    "bi bi-twitter-x"
+  ]
+}
+
 function LoginComponent() {
   return (
     <>
-<div className="justify-center p-2 d-flex border border-danger rounded-1 lign-content-center">
-    <div className="w-100 border rounded-1 p-2">
-    <form>
+      <div className="p-2 border border-danger vh-100 align-content-center">
+        <div className="w-100 border rounded-1 p-2">
+          <form>
+            <FieldsComponent
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              for="email"
+              label="Email"
+            />
 
-  <div data-mdb-input-init className="form-floating mb-4 w-100">
-    <input type="email" id="email" className="form-control d-flex w-100" placeholder="Email Address" />
-    <label className="form-label" htmlFor="email">Email address</label>
-  </div>
+            <FieldsComponent
+              type="password"
+              id="pass"
+              name="pass"
+              placeholder="Password"
+              for="pass"
+              label="Password"
+            />
 
+            <RememberForgotPassComponent
+              type="checkbox"
+              value="remember"
+              id="remember"
+              name="remember"
+              checked={true}
+              for="remember"
+              anchorLabel="Remeber Me"
+              referencePath="#!"
+            />
 
-  <div data-mdb-input-init className="form-floating mb-4">
-    <input type="password" id="password" className="form-control" placeholder="Password" />
-    <label className="form-label" htmlFor="password">Password</label>
-  </div>
+            <FormButton type="submit" id="submit" text="Sign in" />
 
-  
-  <div className="row mb-4">
-    <div className="col d-flex justify-content-center">
-  
-      <div className="form-check">
-        <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-        <label className="form-check-label" htmlFor="form2Example31"> Remember me </label>
+            <div className="text-center">
+              <p>
+                Not a member? <a href="#!">Register</a>
+              </p>
+              <p>or sign up with:</p>
+              {
+              Logos().map((logo, idx) => {
+                return <LoginMethod key={idx} type="button" buttonClass={logo} size="2.5rem" />
+              }
+              )
+            }
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
-
-    <div className="col">
-      
-      <a href="#!">Forgot password?</a>
-    </div>
-  </div>
-
- 
-  <button  type="button" className="btn btn-primary btn-block w-100 mb-4">Sign in</button>
-
-  
-  <div className="text-center">
-    <p>Not a member? <a href="#!">Register</a></p>
-    <p>or sign up with:</p>
-    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-facebook-f"></i>
-    </button>
-
-    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-google"></i>
-    </button>
-
-    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-twitter"></i>
-    </button>
-
-    <button  type="button" data-mdb-button-init data-mdb-ripple-init className="btn btn-link btn-floating mx-1">
-      <i className="fab fa-github"></i>
-    </button>
-  </div>
-</form>
-    </div>
-</div>
     </>
-  )
+  );
 }
 
-export default LoginComponent
+export default LoginComponent;
