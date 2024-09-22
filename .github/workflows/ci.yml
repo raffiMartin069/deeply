@@ -79,7 +79,8 @@ jobs:
         with:
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ env.date }}.latest
-          file: ./Dockerfile
+          file: ./frontend/Dockerfile
+
 
   deploy:
     runs-on: ubuntu-latest
