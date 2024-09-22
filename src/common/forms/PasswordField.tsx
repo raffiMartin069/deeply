@@ -1,26 +1,38 @@
 import { useState } from "react";
 
-type RemeberForgotPassProps = {
-    type: string;
-    value: string;
-    id: string;
-    name: string;
-    for: string;
-    checked: boolean;    
-    anchorLabel: string;
-    referencePath: string;
+type PasswordField = {
+  type: string;
+  id: string;
+  name: string;
+  placeholder: string;
+  for: string;
+  label: string;
+  value: string;
+  referencePath: string;
 };
 
-function RememberForgotPassComponent(props: RemeberForgotPassProps) {
-
-  const [isVisible, setIsVisible] = useState(props.checked);
+function PasswordField(props: PasswordField) {
+  const [isVisible, setIsVisible] = useState(false);
 
   const visiblityHandler = () => {
-    setIsVisible(isVisible);
-  }
+    setIsVisible(!isVisible);
+  };
 
   return (
     <>
+      <div className="form-floating w-100 my-2">
+        <input
+          type={!isVisible ? "password" : "text"}
+          id="password"
+          name="password"
+          className="form-control d-flex w-100"
+          placeholder={props.placeholder}
+        />
+        <label className="form-label" htmlFor={props.for}>
+          {props.label}
+        </label>
+      </div>
+
       <div className="row">
         <div className="col d-flex justify-content-center">
           <div className="form-check">
@@ -30,7 +42,7 @@ function RememberForgotPassComponent(props: RemeberForgotPassProps) {
               value={props.value}
               id={props.id}
               name={props.name}
-              checked={!isVisible ? true : false}
+              checked={isVisible ? true : false}
               onChange={visiblityHandler}
             />
             <label className="form-check-label" htmlFor={props.for}>
@@ -48,5 +60,4 @@ function RememberForgotPassComponent(props: RemeberForgotPassProps) {
   );
 }
 
-export default RememberForgotPassComponent;
-
+export default PasswordField;

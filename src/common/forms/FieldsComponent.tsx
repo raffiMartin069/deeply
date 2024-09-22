@@ -10,7 +10,7 @@ type FormFieldsProps = {
 function FieldsComponent(props: FormFieldsProps) {
   return (
     <>
-      <div data-mdb-input-init className="form-floating mb-4 w-100">
+      <div data-mdb-input-init className="form-floating w-100 my-2">
         <input
           type={props.type}
           id={props.id}

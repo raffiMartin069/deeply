@@ -12,7 +12,7 @@ type FormButtonProps = {
 function FormButton(props: FormButtonProps) {
   return (
     <>
-      <button typeof={props.type} id={props.id} className="btn btn-primary btn-block w-100 mb">
+      <button typeof={props.type} id={props.id} className="btn btn-primary btn-block w-100">
         {props.text}
       </button>
     </>

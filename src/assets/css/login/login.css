@@ -1,0 +1,21 @@
+@media only screen and (min-width: 425px) {
+    .responsiveness.responsiveness {
+        width: 75% !important;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .responsiveness.responsiveness {
+        width: 50% !important;
+        margin: auto;
+        padding: 2rem 1rem 2rem 1rem !important;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .responsiveness.responsiveness {
+        width: 30% !important;
+        margin: auto;
+    }
+}
