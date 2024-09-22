@@ -66,6 +66,11 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GHUB_TOKEN }}
 
+      - 
+        name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d--%M-%S')" >> $GITHUB_ENV
+
       - name: Lowercase the repo name
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
 
@@ -73,7 +78,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ghcr.io/${{ env.REPO }}:${{ github.sha }}
+          tags: ghcr.io/${{ env.REPO }}:${{ env.date }}.latest
           file: ./Dockerfile
 
   deploy:
