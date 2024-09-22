@@ -42,31 +42,12 @@ jobs:
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
-      - 
-        name: Check out the repositroy
-        uses: actions/checkout@v4
-
-
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-
       -
-        name: Build and push using Docker Compose
-        run: |
-          docker-compose -f docker-compose.yaml build
-          docker-compose -f docker-compose.yaml push
-        env:
-          DOCKER_BUILDKIT: 1
-          COMPOSE_DOCKER_CLI_BUILD: 1
-        # name: Build and push
-        # uses: docker/build-push-action@v6
-        # with:
-        #   push: true
-        #   tags: ${{ vars.DOCKERHUB_USERNAME }}/deeply:${{ env.date }}.latest
-          
+        name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ vars.DOCKERHUB_USERNAME }}/deeply:${{ env.date }}.latest
   ghcr:
     runs-on: ubuntu-latest
 
@@ -93,17 +74,13 @@ jobs:
       - name: Lowercase the repo name
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
 
-      - name: Install Docker Compose
-        run: |
-          sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-          sudo chmod +x /usr/local/bin/docker-compose
-
       - name: Build and push container image to registry
         uses: docker/build-push-action@v4
         with:
           push: true
           tags: ghcr.io/${{ env.REPO }}:${{ env.date }}.latest
           file: ./frontend/Dockerfile
+
 
   deploy:
     runs-on: ubuntu-latest
