@@ -98,20 +98,12 @@ jobs:
           sudo curl -L "https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | jq -r .tag_name)/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
           sudo chmod +x /usr/local/bin/docker-compose
 
-      -
-        name: Build and push using Docker Compose
-        run: |
-          docker-compose -f docker-compose.yaml build
-          docker-compose -f docker-compose.yaml push
-        env:
-          DOCKER_BUILDKIT: 1
-          COMPOSE_DOCKER_CLI_BUILD: 1
-      # - name: Build and push container image to registry
-      #   uses: docker/build-push-action@v4
-      #   with:
-      #     push: true
-      #     tags: ghcr.io/${{ env.REPO }}:${{ env.date }}.latest
-      #     file: ./Dockerfile
+      - name: Build and push container image to registry
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ghcr.io/${{ env.REPO }}:${{ env.date }}.latest
+          file: ./frontend/Dockerfile
 
   deploy:
     runs-on: ubuntu-latest
