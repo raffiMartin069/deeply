@@ -1,7 +1,6 @@
 import FieldsComponent from "../common/forms/FieldsComponent";
 import FormButton from "../common/forms/FormButton";
 import LoginRegisterLogo from "../component/login/LoginRegisterLogo";
-import RememberForgotPassComponent from "../component/login/RememberForgotPassComponent";
 import "../assets/css/login/login.css";
 import PasswordField from "../common/forms/PasswordField";
 
@@ -15,8 +14,6 @@ function LoginPage() {
     "bi bi-google",
     "bi bi-twitter-x"
   ];
-
-
 
   return (
     <div className="p-2 border border-danger vh-100 align-content-center">
@@ -58,7 +55,5 @@ function LoginPage() {
 }
 
 export default LoginPage;
-function useState(arg0: boolean): [any, any] {
-    throw new Error("Function not implemented.");
-}
+
 
