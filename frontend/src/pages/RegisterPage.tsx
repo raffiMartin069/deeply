@@ -1,7 +1,9 @@
 import { useState } from "react";
+import React from "react";
+import LoginRegisterLogo from "../component/login/LoginRegisterLogo";
 import FieldsComponent from "../common/forms/FieldsComponent";
 import FormButton from "../common/forms/FormButton";
-import LoginRegisterLogo from "../component/login/LoginRegisterLogo";
+
 
 function RegisterPage() {
   const link = "Login";
