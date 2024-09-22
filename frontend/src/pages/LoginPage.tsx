@@ -3,7 +3,6 @@ import FormButton from "../common/forms/FormButton";
 import LoginRegisterLogo from "../component/login/LoginRegisterLogo";
 import "../assets/css/login/login.css";
 import PasswordField from "../common/forms/PasswordField";
-import React from "react";
 
 function LoginPage() {
   const link = "Register";
