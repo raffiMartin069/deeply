@@ -94,6 +94,11 @@ jobs:
       - name: Lowercase the repo name
         run: echo "REPO=${GITHUB_REPOSITORY,,}" >>${GITHUB_ENV}
 
+      - 
+        name: Get current date
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d--%M-%S')" >> $GITHUB_ENV
+
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@85270a1854658d167ab239bce43949edb336fa7c
