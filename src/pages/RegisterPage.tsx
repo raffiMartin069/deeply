@@ -69,7 +69,7 @@ function RegisterPage() {
               className="form-control d-flex w-100"
               placeholder="Repeat Password"
             />
-            <label className="form-label" htmlFor={"password"}>
+            <label className="form-label" htmlFor={"repeat_password"}>
               Repeat Password
             </label>
           </div>
@@ -81,12 +81,12 @@ function RegisterPage() {
                   className="form-check-input"
                   type="checkbox"
                   value={isVisible ? "password" : "text"}
-                  id={"password"}
-                  name={"password"}
+                  id={"visible_password"}
+                  name={"visible_password"}
                   checked={isVisible ? true : false}
                   onChange={visiblityHandler}
                 />
-                <label className="form-check-label" htmlFor={"password"}>
+                <label className="form-check-label" htmlFor={"visible_password"}>
                   {" "}
                   Show Password{" "}
                 </label>
